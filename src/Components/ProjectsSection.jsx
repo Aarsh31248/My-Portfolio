@@ -32,7 +32,7 @@ const projects = [
     id: 4,
     title: "AI Photo Enhancer",
     description: "Built an AI-powered Image Enhancer using React + Tailwind CSS with upload, enhancement API integration, polling, and enhanced image preview/download.",
-    image: "",
+    image: "/projects/photoEnhancer.png",
     tags: ["React", "Tailwind",  "Axios", "AI Enhancement API"],
     demoUrl: "https://aarshaiimageenhancer.netlify.app/",
     githubUrl: "https://github.com/Aarsh31248/AI-Image-Enhancer",
