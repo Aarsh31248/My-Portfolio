@@ -23,6 +23,16 @@ const projects = [
   },
   {
     id: 3,
+    title: "Animix",
+    description:
+      "Animix is a modern anime streaming UI built with React and GSAP, featuring smooth animations, interactive sections, and a premium cinematic experience.",
+    image: "/projects/animix.png",
+    tags: ["React", "GSAP", "Tailwind"],
+    demoUrl: "https://aarshanimix.netlify.app/",
+    githubUrl: "https://github.com/Aarsh31248/Animix",
+  },
+  {
+    id: 4,
     title: "Blog App",
     description:
       "Blog app with full CRUD functionality, users can explore posts with a clean UI, built using React, Redux, and Tailwind with responsive UI.",
@@ -32,7 +42,7 @@ const projects = [
     githubUrl: "https://github.com/Aarsh31248/Blog-App",
   },
   {
-    id: 4,
+    id: 5,
     title: "AI Photo Enhancer",
     description:
       "Built an AI-powered Image Enhancer using React + Tailwind CSS with upload, enhancement API integration, polling, and enhanced image preview/download.",
@@ -42,7 +52,7 @@ const projects = [
     githubUrl: "https://github.com/Aarsh31248/AI-Image-Enhancer",
   },
   {
-    id: 5,
+    id: 6,
     title: "Crypto Place",
     description:
       "CryptoPlace is a React-based crypto tracker that fetches real-time data using the CoinGecko API.It also displays interactive price trend charts for better market analysis.",
