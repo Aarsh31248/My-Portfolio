@@ -61,6 +61,16 @@ const projects = [
     demoUrl: "https://aarshcryptoplace.netlify.app/",
     githubUrl: "https://github.com/Aarsh31248/Crypto-Place",
   },
+  {
+    id: 7,
+    title: "Grocify",
+    description:
+      "Grocify is a responsive grocery e-commerce UI built with React, Tailwind, and GSAP, showcasing smooth animations, modern design, and optimized performance.",
+    image: "/projects/grocify.png",
+    tags: ["React", "GSAP", "Tailwind CSS"],
+    demoUrl: "https://aarshgrocify.netlify.app/",
+    githubUrl: "https://github.com/Aarsh31248/Grocify",
+  },
 ];
 
 const ProjectsSection = () => {

@@ -8,19 +8,23 @@ const skills = [
   { name: "JavaScript", level: 90, category: "frontend" },
   { name: "React", level: 85, category: "frontend" },
   { name: "Redux", level: 95, category: "frontend" },
+  { name: "GSAP", level: 85, category: "frontend" },
   { name: "Tailwind CSS", level: 90, category: "frontend" },
   { name: "Bootstrap 5", level: 80, category: "frontend" },
   { name: "Shadcn/UI", level: 90, category: "frontend" },
+  { name: "Axios", level: 85, category: "frontend" },
 
   // Backend
   { name: "Node.js", level: 60, category: "backend" },
   { name: "Express", level: 65, category: "backend" },
   { name: "MongoDB", level: 70, category: "backend" },
   { name: "Firebase", level: 90, category: "backend" },
+  { name: "REST API Integration", level: 90, category: "backend" },
 
   // Tools
   { name: "Git/GitHub", level: 90, category: "tools" },
   { name: "Photoshop", level: 80, category: "tools" },
+  { name: "Postman", level: 80, category: "tools" },
   { name: "Redux DevTools", level: 95, category: "tools" },
   { name: "Jest", level: 85, category: "tools" },
   { name: "Netlify/Vercel", level: 90, category: "tools" },
@@ -33,7 +37,7 @@ const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const filteredSkills = skills.filter(
-    (skill) => activeCategory === "all" || skill.category === activeCategory
+    (skill) => activeCategory === "all" || skill.category === activeCategory,
   );
 
   return (
@@ -52,7 +56,7 @@ const SkillsSection = () => {
                 "px-5 py-2 rounded-full transition-colors duration-300 capitalize cursor-pointer",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-forefround hover:bd-secondary"
+                  : "bg-secondary/70 text-forefround hover:bd-secondary",
               )}
             >
               {category}
