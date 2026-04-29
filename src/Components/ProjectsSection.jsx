@@ -1,77 +1,5 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
-
-const projects = [
-  {
-    id: 1,
-    title: "NetflixGPT",
-    description:
-      "Netflix-inspired app with authentication and OpenAI-powered movie recommendations, built using React, Redux, and Tailwind.",
-    image: "/projects/netflixGPT.png",
-    tags: ["OpenAI", "TMDB API", "React", "Redux", "Tailwind", "Firebase"],
-    demoUrl: "https://netflixgpt-31248.web.app",
-    githubUrl: "https://github.com/Aarsh31248/Netflix-GPT",
-  },
-  {
-    id: 2,
-    title: "Youtube Clone",
-    description:
-      "YouTube clone using YouTube API for videos & suggestions, with debounced search and a real-time optimized live chat experience.",
-    image: "/projects/youtube.png",
-    tags: ["React", "Tailwind", "Youtube API", "Redux"],
-    demoUrl: "https://aarshyoutube.netlify.app/",
-    githubUrl: "https://github.com/Aarsh31248/my-youtube",
-  },
-  {
-    id: 3,
-    title: "Animix",
-    description:
-      "Animix is a modern anime streaming UI built with React and GSAP, featuring smooth animations, interactive sections, and a premium cinematic experience.",
-    image: "/projects/animix.png",
-    tags: ["React", "GSAP", "Tailwind"],
-    demoUrl: "https://aarshanimix.netlify.app/",
-    githubUrl: "https://github.com/Aarsh31248/Animix",
-  },
-  {
-    id: 4,
-    title: "Blog App",
-    description:
-      "Blog app with full CRUD functionality, users can explore posts with a clean UI, built using React, Redux, and Tailwind with responsive UI.",
-    image: "/projects/blogApp.png",
-    tags: ["React", "Tailwind", "Redux", "Appwrite"],
-    demoUrl: "https://aarshblogapp.netlify.app/",
-    githubUrl: "https://github.com/Aarsh31248/Blog-App",
-  },
-  {
-    id: 5,
-    title: "AI Photo Enhancer",
-    description:
-      "Built an AI-powered Image Enhancer using React + Tailwind CSS with upload, enhancement API integration, polling, and enhanced image preview/download.",
-    image: "/projects/photoEnhancer.png",
-    tags: ["React", "Tailwind", "Axios", "AI Enhancement API"],
-    demoUrl: "https://aarshaiimageenhancer.netlify.app/",
-    githubUrl: "https://github.com/Aarsh31248/AI-Image-Enhancer",
-  },
-  {
-    id: 6,
-    title: "Crypto Place",
-    description:
-      "CryptoPlace is a React-based crypto tracker that fetches real-time data using the CoinGecko API.It also displays interactive price trend charts for better market analysis.",
-    image: "/projects/cryptoPlace.png",
-    tags: ["React", "React Google Charts", "CoinGecko API"],
-    demoUrl: "https://aarshcryptoplace.netlify.app/",
-    githubUrl: "https://github.com/Aarsh31248/Crypto-Place",
-  },
-  {
-    id: 7,
-    title: "Grocify",
-    description:
-      "Grocify is a responsive grocery e-commerce UI built with React, Tailwind, and GSAP, showcasing smooth animations, modern design, and optimized performance.",
-    image: "/projects/grocify.png",
-    tags: ["React", "GSAP", "Tailwind CSS"],
-    demoUrl: "https://aarshgrocify.netlify.app/",
-    githubUrl: "https://github.com/Aarsh31248/Grocify",
-  },
-];
+import { projects } from "../data/projectsData";
 
 const ProjectsSection = () => {
   return (
@@ -87,23 +15,36 @@ const ProjectsSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, key) => (
+          {projects.map((project) => (
             <div
-              key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              key={project.title}
+              className="group bg-card rounded-lg overflow-hidden shadow-xs 
+                          transition-all duration-300 ease-out 
+                          hover:-translate-y-2 hover:shadow-xl 
+                          hover:shadow-primary/20 flex flex-col h-full"
             >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-fill transition-transform duration-500 group-hover:scale-110"
-                />
+              <div className="h-48 overflow-hidden relative">
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block h-48 overflow-hidden relative cursor-pointer"
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </a>
               </div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
+                  {project.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                    >
                       {tag}
                     </span>
                   ))}
@@ -117,11 +58,18 @@ const ProjectsSection = () => {
                   {project.description}
                 </p>
 
-                <div className="flex justify-between items-center">
+                <div
+                  className=" flex space-x-3 mt-auto
+                              opacity-100 translate-y-0
+                              md:opacity-0 md:translate-y-4
+                              md:group-hover:opacity-100 md:group-hover:translate-y-0
+                              transition-all duration-300"
+                >
                   <div className="flex space-x-3">
                     <a
                       href={project.demoUrl}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-foreground/80 hover:text-primary transition-colors duration-300"
                     >
                       <ExternalLink size={21} />
@@ -130,6 +78,7 @@ const ProjectsSection = () => {
                     <a
                       href={project.githubUrl}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-foreground/80 hover:text-primary transition-colors duration-300"
                     >
                       <Github size={21} />
