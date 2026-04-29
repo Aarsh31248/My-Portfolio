@@ -1,6 +1,25 @@
 import { useRef, useState } from "react";
 import { cn } from "../lib/utils";
 import { skills, categories } from "../data/skillsData";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
 
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -27,8 +46,10 @@ const SkillsSection = () => {
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (
-            <button
+            <motion.button
               key={category}
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05 }}
               onClick={() => {
                 setActiveCategory(category);
                 setShowAll(false);
@@ -37,22 +58,30 @@ const SkillsSection = () => {
                 "px-5 py-2 rounded-full transition-all duration-300 capitalize cursor-pointer",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground shadow-md"
-                  : "bg-secondary/70 text-foreground hover:bg-secondary hover:scale-105",
+                  : "bg-secondary/70 text-foreground hover:bg-secondary",
               )}
             >
               {category}
-            </button>
+            </motion.button>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          key={activeCategory + showAll}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 will-change-transform"
+        >
           {visibleSkills.map((skill) => (
-            <div
-              key={skill.name}
+            <motion.div
+              key={skill.name + activeCategory}
+              variants={itemVariants}
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 160, damping: 12 }}
               className="group relative bg-card px-4 py-4 rounded-lg border border-border 
-                          hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10
-                          transition-all duration-300 
-                          hover:-translate-y-1 cursor-default"
+             hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10
+             transition-all duration-300 cursor-default"
             >
               {/* ICON */}
               {skill.icon && (
@@ -71,9 +100,11 @@ const SkillsSection = () => {
 
               {/* PROGRESS BAR */}
               <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-primary h-2 rounded-full transition-all duration-700"
-                  style={{ width: skill.level + "%" }}
+                <motion.div
+                  className="bg-primary h-2 rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: skill.level + "%" }}
+                  transition={{ duration: 1, ease: "easeOut" }}
                 />
               </div>
 
@@ -83,13 +114,15 @@ const SkillsSection = () => {
                   {skill.level}%
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {filteredSkills.length > 6 && (
           <div className="text-center mt-8">
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => {
                 if (showAll) {
                   sectionRef.current?.scrollIntoView({
@@ -100,10 +133,10 @@ const SkillsSection = () => {
                 setShowAll(!showAll);
               }}
               className="px-6 py-2 rounded-full border border-primary text-primary 
-                          hover:bg-primary/10 hover:scale-105 transition-all duration-300 cursor-pointer"
+             hover:bg-primary/10 transition-all duration-300 cursor-pointer"
             >
               {showAll ? "Show Less" : "Show More"}
-            </button>
+            </motion.button>
           </div>
         )}
       </div>
