@@ -25,7 +25,7 @@ const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [showAll, setShowAll] = useState(false);
 
-  const sectionRef = useRef(null);
+  const categoryRef = useRef(null);
 
   const filteredSkills = skills.filter(
     (skill) => activeCategory === "all" || skill.category === activeCategory,
@@ -34,17 +34,16 @@ const SkillsSection = () => {
   const visibleSkills = showAll ? filteredSkills : filteredSkills.slice(0, 6); // show 6 initially
 
   return (
-    <section
-      ref={sectionRef}
-      id="skills"
-      className="py-24 px-4 relative bg-secondary/30"
-    >
+    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
           My <span className="text-primary"> Skills</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div
+          ref={categoryRef}
+          className="flex flex-wrap justify-center gap-4 mb-12 scroll-mt-24"
+        >
           {categories.map((category) => (
             <motion.button
               key={category}
@@ -77,12 +76,15 @@ const SkillsSection = () => {
             <motion.div
               key={skill.name + activeCategory}
               variants={itemVariants}
-              whileHover={{ y: -8, scale: 1.02 }}
+              whileHover={{ y: -6, scale: 1.015 }}
               transition={{ type: "spring", stiffness: 160, damping: 12 }}
               className="group relative bg-card px-4 py-4 rounded-lg border border-border 
              hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10
              transition-all duration-300 cursor-default"
             >
+              <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none">
+                <div className="absolute inset-0 bg-linear-to-r from-primary/10 via-purple-500/10 to-primary/10 blur-xl" />
+              </div>
               {/* ICON */}
               {skill.icon && (
                 <div
@@ -124,13 +126,19 @@ const SkillsSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {
-                if (showAll) {
-                  sectionRef.current?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
-                }
-                setShowAll(!showAll);
+                setShowAll((prev) => {
+                  const next = !prev;
+
+                  // scroll AFTER state change
+                  setTimeout(() => {
+                    categoryRef.current?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }, 100);
+
+                  return next;
+                });
               }}
               className="px-6 py-2 rounded-full border border-primary text-primary 
              hover:bg-primary/10 transition-all duration-300 cursor-pointer"

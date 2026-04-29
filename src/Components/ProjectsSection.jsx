@@ -20,6 +20,15 @@ const itemVariants = {
   },
 };
 
+const trackEvent = (name, label) => {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", name, {
+      event_category: "engagement",
+      event_label: label,
+    });
+  }
+};
+
 const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 px-4 relative">
@@ -62,6 +71,12 @@ const ProjectsSection = () => {
                   href={project.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => {
+                    window.gtag("event", "project_click", {
+                      event_category: "engagement",
+                      event_label: project.title,
+                    });
+                  }}
                   className="block h-48 overflow-hidden relative cursor-pointer"
                 >
                   <img
@@ -88,11 +103,11 @@ const ProjectsSection = () => {
                   ))}
                 </div>
 
-                <h3 className="text-xl font-semibold mb-1 -mt-1">
+                <h3 className="text-xl font-semibold mb-1 -mt-1 cursor-default hover:text-primary transition-colors duration-300">
                   {" "}
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-4">
+                <p className="text-muted-foreground text-sm mb-4 cursor-default">
                   {project.description}
                 </p>
 
@@ -108,6 +123,12 @@ const ProjectsSection = () => {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => {
+                        window.gtag("event", "project_click", {
+                          event_category: "engagement",
+                          event_label: project.title,
+                        });
+                      }}
                       className="text-foreground/80 hover:text-primary transition-colors duration-300"
                     >
                       <ExternalLink size={21} />
@@ -135,6 +156,8 @@ const ProjectsSection = () => {
             whileTap={{ scale: 0.95 }}
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackEvent("github_click", "github_profile")}
           >
             Check My Github <ArrowRight size={16} />
           </motion.a>

@@ -19,6 +19,15 @@ const itemVariants = {
   },
 };
 
+const trackEvent = (name, label) => {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", name, {
+      event_category: "engagement",
+      event_label: label,
+    });
+  }
+};
+
 const AboutSection = () => {
   return (
     <section id="about" className="py-24 px-4 relative">
@@ -70,7 +79,16 @@ const AboutSection = () => {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 pt-4 justify-center"
             >
-              <a href="#contact" className="cosmic-button">
+              <a
+                href="#contact"
+                className="cosmic-button"
+                onClick={() => {
+                  window.gtag("event", "contact_click", {
+                    event_category: "engagement",
+                    event_label: "contact_section",
+                  });
+                }}
+              >
                 Get In Touch
               </a>
 
@@ -78,6 +96,7 @@ const AboutSection = () => {
                 href="resume.pdf"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackEvent("resume_click", "resume")}
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300 font-bold"
               >
                 View Resume
