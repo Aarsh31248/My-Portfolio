@@ -19,9 +19,10 @@ import {
   SiFramer,
   SiJest,
   SiCloudinary,
+  SiSocketdotio
 } from "react-icons/si";
 
-import { TbBrandFramerMotion, TbApi } from "react-icons/tb";
+import { TbBrandFramerMotion, TbApi, TbBrandReactNative } from "react-icons/tb";
 import { BsDatabase, BsImage, BsLightning, BsCpu   } from "react-icons/bs";
 import { FaCss3Alt } from "react-icons/fa";
 import { FiLayers, FiImage, FiMail, FiActivity } from "react-icons/fi";
@@ -45,12 +46,11 @@ export const skills = [
 
   // Frontend
   { name: "React", level: 90, category: "frontend", icon: SiReact },
-  { name: "Redux Toolkit", level: 95, category: "frontend", icon: SiRedux },
+  { name: "Redux Toolkit", level: 90, category: "frontend", icon: SiRedux },
   { name: "Tailwind CSS", level: 90, category: "frontend", icon: SiTailwindcss },
   { name: "React Router", level: 85, category: "frontend", icon: SiReactrouter },
-  { name: "Zustand", level: 60, category: "frontend", icon: BsDatabase }, // fallback
+  { name: "Zustand", level: 60, category: "frontend", icon: TbBrandReactNative }, // fallback
   { name: "GSAP", level: 85, category: "frontend", icon: TbBrandFramerMotion }, // fallback vibe
-  { name: "Bootstrap 5", level: 75, category: "frontend", icon: SiBootstrap },
   { name: "Axios", level: 85, category: "frontend", icon: SiAxios },
   { name: "Framer Motion", level: 80, category: "frontend", icon: SiFramer },
   { name: "UI Libraries (Shadcn, Daisy)", level: 90, category: "frontend", icon: MdDesignServices },
@@ -60,32 +60,29 @@ export const skills = [
   { name: "Express.js", level: 85, category: "backend", icon: SiExpress },
   { name: "Multer (File Uploads)", level: 80, category: "backend", icon: FiImage },
   { name: "Nodemailer", level: 80, category: "backend", icon: FiMail },
+  { name: "Socket.io", level: 80, category: "backend", icon: SiSocketdotio },
   
   // Database
   { name: "MongoDB", level: 85, category: "database", icon: SiMongodb },
   { name: "Redis", level: 75, category: "database", icon: SiRedis },
   
   // Tools
-  { name: "Git", level: 90, category: "tools", icon: SiGit },
-  { name: "GitHub", level: 95, category: "tools", icon: SiGithub },
+  { name: "Git", level: 80, category: "tools", icon: SiGit },
+  { name: "GitHub", level: 90, category: "tools", icon: SiGithub },
   { name: "Postman", level: 90, category: "tools", icon: SiPostman },
-  { name: "Firebase", level: 85, category: "tools", icon: SiFirebase },
-  { name: "Photoshop", level: 80, category: "tools", icon: BsImage }, // fallback
+  { name: "Firebase", level: 75, category: "tools", icon: SiFirebase },
   { name: "Redux DevTools", level: 90, category: "tools", icon: SiRedux },
-  { name: "Jest", level: 70, category: "tools", icon: SiJest },
   { name: "ImageKit (Media Optimization)", level: 85, category: "tools", icon: FiImage },
   { name: "Cloudinary (Media Management)", level: 85, category: "tools", icon: SiCloudinary },
   
   // Concepts
   { name: "JWT Authentication", level: 90, category: "concepts", icon: SiJsonwebtokens },
   { name: "Clerk Authentication", level: 85, category: "concepts", icon: SiFirebase }, // fallback
-  { name: "Server-Sent Events (SSE)", level: 75, category: "concepts", icon: BsDatabase },
   { name: "Stripe Integration", level: 75, category: "concepts", icon: TbApi },
   { name: "AI Integration (OpenAI APIs)", level: 85, category: "concepts", icon: BsCpu  },
   { name: "REST API Integration", level: 90, category: "concepts", icon: TbApi },
   { name: "Real-Time Systems", level: 80, category: "concepts", icon: FiActivity },
   { name: "Performance Optimization", level: 85, category: "concepts", icon: BsLightning },
-  { name: "Microservices Architecture", level: 75, category: "concepts", icon: FiLayers },
   { name: "Deployment", level: 85, category: "concepts", icon: FiLayers },
 ];
 

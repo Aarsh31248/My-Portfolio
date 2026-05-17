@@ -26,6 +26,15 @@ export const projects = [
     githubUrl: "https://github.com/Aarsh31248/PingUp",
   },
   {
+    title: "Talkly",
+    description:
+      "Real-time chat platform with auth WebSocket communication, live messaging, online presence tracking, and instant UI sync using Socket.IO.",
+    image: "/projects/talkly.png",
+    tags: ["MERN", "Socket.IO", "JWT", "Zustand", "Cloudinary", "Arcjet", "Tailwind"],
+    demoUrl: "https://aarsh-talkly.onrender.com/",
+    githubUrl: "https://github.com/Aarsh31248/Talkly",
+  },
+  {
     title: "Rydex",
     description:
       "Car rental booking platform with role-based access, real-time availability, and backend validation to prevent overlapping bookings.",
