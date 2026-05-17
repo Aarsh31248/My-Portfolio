@@ -32,7 +32,7 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
           About
           <span className="text-primary"> Me</span>
         </h2>
@@ -97,7 +97,7 @@ const AboutSection = () => {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => trackEvent("resume_click", "resume")}
-                className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300 font-bold"
+                className="px-6 py-2 rounded-full border border-primary text-white hover:bg-primary/10 transition-colors duration-300 font-bold"
               >
                 View Resume
               </a>
@@ -111,14 +111,14 @@ const AboutSection = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             transition={{ delay: 0.2 }}
-            className="grid grid-cols-1 gap-6 will-change-transform"
+            className="grid grid-cols-1 gap-4 sm:gap-6 will-change-transform"
           >
             {/* CARD 1 */}
             <motion.div
               variants={itemVariants}
               whileHover={{ y: -8, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 180, damping: 12 }}
-              className="group relative bg-card p-6 rounded-lg border border-border 
+              className="group relative bg-card p-4 sm:p-6 rounded-lg border border-border
                           transition-all duration-300 
                           hover:shadow-lg hover:shadow-primary/10 
                           hover:border-primary/40 overflow-hidden"
@@ -126,7 +126,7 @@ const AboutSection = () => {
               {/* subtle hover overlay */}
               <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition duration-300"></div>
 
-              <div className="relative flex items-start gap-4">
+              <div className="relative flex items-start gap-3 sm:gap-4">
                 <motion.div
                   whileHover={{ scale: 1.15 }}
                   className="p-3 rounded-full bg-primary/10 
@@ -137,10 +137,10 @@ const AboutSection = () => {
                 </motion.div>
 
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">
+                  <h4 className="font-semibold text-base sm:text-lg">
                     Full Stack Systems (MERN)
                   </h4>
-                  <p className="text-muted-foreground mt-1">
+                  <p className="text-sm sm:text-base text-muted-foreground mt-1">
                     Building end-to-end applications with scalable architecture,
                     clean APIs, and efficient backend systems designed for
                     real-world use.
@@ -154,14 +154,14 @@ const AboutSection = () => {
               variants={itemVariants}
               whileHover={{ y: -8, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 180, damping: 12 }}
-              className="group relative bg-card p-6 rounded-lg border border-border 
+              className="group relative bg-card p-4 sm:p-6 rounded-lg border border-border 
                           transition-all duration-300 
                           hover:shadow-lg hover:shadow-primary/10 
                           hover:border-primary/40 overflow-hidden"
             >
               <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition duration-300"></div>
 
-              <div className="relative flex items-start gap-4">
+              <div className="relative flex items-start gap-3 sm:gap-4">
                 <motion.div
                   whileHover={{ scale: 1.15 }}
                   className="p-3 rounded-full bg-primary/10 
@@ -172,10 +172,10 @@ const AboutSection = () => {
                 </motion.div>
 
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">
+                  <h4 className="font-semibold text-base sm:text-lg">
                     State Management & UI Systems
                   </h4>
-                  <p className="text-muted-foreground mt-1">
+                  <p className="text-sm sm:text-base text-muted-foreground mt-1">
                     Designing responsive, high-performance interfaces with
                     optimized state management and scalable component
                     architecture.
@@ -189,14 +189,14 @@ const AboutSection = () => {
               variants={itemVariants}
               whileHover={{ y: -8, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 180, damping: 12 }}
-              className="group relative bg-card p-6 rounded-lg border border-border 
+              className="group relative bg-card p-4 sm:p-6 rounded-lg border border-border
                           transition-all duration-300 
                           hover:shadow-lg hover:shadow-primary/10 
                           hover:border-primary/40 overflow-hidden"
             >
               <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition duration-300"></div>
 
-              <div className="relative flex items-start gap-4">
+              <div className="relative flex items-start gap-3 sm:gap-4">
                 <motion.div
                   whileHover={{ scale: 1.15 }}
                   className="p-3 rounded-full bg-primary/10 
@@ -207,10 +207,10 @@ const AboutSection = () => {
                 </motion.div>
 
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">
+                  <h4 className="font-semibold text-base sm:text-lg">
                     Real-Time & System Integration
                   </h4>
-                  <p className="text-muted-foreground mt-1">
+                  <p className="text-sm sm:text-base text-muted-foreground mt-1">
                     Building systems with real-time communication, event-driven
                     workflows, and seamless third-party integrations.
                   </p>
